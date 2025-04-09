@@ -166,7 +166,7 @@ header {
     font-size: 10px;
 }
 
-.price-discount-container{
+.price-discount-container {
     display: flex;
     align-items: center;
     padding: 10px 0;
@@ -291,7 +291,7 @@ header {
 
 .page-product-presentation {
     display: flex;
-    padding: 55px 372px;
+    padding: 0 372px;
 }
 
 .page-product-presentation-image {
@@ -327,6 +327,7 @@ header {
     padding: 45px 372px;
     background-color: #DEDEDE;
     font-family: "Nunito", sans-serif;
+    margin: 55px 0;
 }
 
 .second-page-banner h2 {
@@ -358,16 +359,11 @@ header {
 
 /* contactSectionBanner */
 
-.contact-section-banner {
-
-}
-
 .contact-section-banner-image {
     display: flex;
     align-items: center;
     background-image: url(assets/contactSectionBannerImage.png);
     height: 660px;
-    margin: 50px 0;
 }
 
 .contact-section-banner-text {
@@ -379,6 +375,104 @@ header {
     font-weight: 400;
     font-size: 1.875rem;
     color: white;
+}
+
+/* newsletterSection */
+
+.newsletter-section {
+    margin: 50px 250px;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.newsletter-section h3 {
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.newsletter-section span {
+    color: #005CFF;
+}
+
+.newsletter-form-container {
+    background-color: #DEDEDE;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    align-items: center;
+    padding: 64px 100px;
+    border-radius: 8px;
+}
+
+.text-input {
+    width: 280px;
+    font-size: 14px;
+    background-color: white;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.checkbox-input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.checkbox-input {
+    margin: 0;
+    appearance: none;
+    position: relative;
+    width: 1.125rem;
+    height: 1.125rem;
+    background-color: #fff;
+    border-radius: 0.25rem;
+}
+
+.checkbox-input::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.75rem;
+    height: 0.75rem;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    transform: translate(-50%, -50%) scale(0);
+    transform-origin: center;
+    transition: 0.125s transform ease-in-out;
+    box-shadow: inset 1rem 1rem #000000;
+}
+
+.checkbox-input:checked {
+    background-color: #ffffff;
+}
+
+.checkbox-input:checked::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.newsletter-form-container label {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.newsletter-form-container button {
+    font-size: 16px;
+    font-weight: 700;
+    background-color: #005CFF;
+    color: white;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 8px;
+    font-family: "Nunito Sans", sans-serif;
+    cursor: pointer;
+}
+
+.newsletter-form-container button:hover {
+    background-color: #00264E;
 }
 
 /* footer */

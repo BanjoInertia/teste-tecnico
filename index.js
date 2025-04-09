@@ -132,90 +132,95 @@ function getItemsPerPage() {
     return 5;
 }
 
-const categories = [...new Set(product.map((item) => { return item }
-))]
+class ProductSlider {
+    constructor(wrapperElement) {
+        this.wrapper = wrapperElement;
+        this.slider = wrapperElement.querySelector('.product-slider');
+        this.dots = wrapperElement.querySelector('.pagination-dots');
+        this.nextBtn = wrapperElement.querySelector('.nxt-btn');
+        this.prevBtn = wrapperElement.querySelector('.pre-btn');
+        this.currentPage = 0;
+        this.itemsPerPage = getItemsPerPage();
 
-let currentPage = 0;
-let itemsPerPage = getItemsPerPage();
-
-window.addEventListener('resize', () => {
-    const newItemsPerPage = getItemsPerPage();
-    if (newItemsPerPage !== itemsPerPage) {
-        itemsPerPage = newItemsPerPage;
-        currentPage = 0;
-        displayItem();
+        this.attachEvents();
+        this.displayItems();
     }
-});
 
-function displayItem() {
-    console.log(`Rendering page ${currentPage}, itemsPerPage: ${itemsPerPage}`);
-    
-    const start = currentPage * itemsPerPage;
-    const end = start + itemsPerPage;
-    const itemsToDisplay = product.slice(start, end);
+    attachEvents() {
+        this.nextBtn.addEventListener('click', () => {
+            if ((this.currentPage + 1) * this.itemsPerPage < product.length) {
+                this.currentPage++;
+                this.displayItems();
+            }
+        });
 
-    const container = document.getElementById('product-slider');
-    container.innerHTML = itemsToDisplay.map((item) => {
-        const { image, description, actualPrice, price, discount } = item;
-        return `
+        this.prevBtn.addEventListener('click', () => {
+            if (this.currentPage > 0) {
+                this.currentPage--;
+                this.displayItems();
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            const newItemsPerPage = getItemsPerPage();
+            if (newItemsPerPage !== this.itemsPerPage) {
+                this.itemsPerPage = newItemsPerPage;
+                this.currentPage = 0;
+                this.displayItems();
+            }
+        });
+    }
+
+    displayItems() {
+        const start = this.currentPage * this.itemsPerPage;
+        const end = start + this.itemsPerPage;
+        const items = product.slice(start, end);
+
+        this.slider.innerHTML = items.map(item => `
             <div class="product-card">
                 <div class="product-image">
                     <span class="new-tag">Novo</span>
-                    <img class="product-thumb" src="${image}" alt="">
+                    <img class="product-thumb" src="${item.image}" alt="">
                 </div>
                 <div class="product-info">
-                    <h3 class="product-short-description">${description}</h3>
+                    <h3 class="product-short-description">${item.description}</h3>
                     <div class="price-discount-container">
                         <div class="price-container">
-                            <p class="actual-price">R$${actualPrice}</p>
-                            <p class="price">R$${price}</p>
+                            <p class="actual-price">R$${item.actualPrice}</p>
+                            <p class="price">R$${item.price}</p>
                         </div>
-                        <span class="discount-tag">${discount}% OFF</span>
+                        <span class="discount-tag">${item.discount}% OFF</span>
                     </div>
                     <p class="installment-info">Ou em até <span class="installment-info-bold">10x de R$ 7,90</span></p>
                     <button class="buy-btn">comprar</button>
                 </div>
             </div>
-        `;
-    }).join('');
+        `).join('');
 
-    updateDots();
-}
+        this.updateDots();
+    }
 
-function updateDots() {
-    const totalPages = Math.ceil(product.length / itemsPerPage);
-    const dotsContainer = document.getElementById('pagination-dots');
+    updateDots() {
+        const totalPages = Math.ceil(product.length / this.itemsPerPage);
+        this.dots.innerHTML = '';
 
-    dotsContainer.innerHTML = '';
+        for (let i = 0; i < totalPages; i++) {
+            const dot = document.createElement('span');
+            dot.classList.add('dot');
+            if (i === this.currentPage) dot.classList.add('active');
 
-    for (let i = 0; i < totalPages; i++) {
-        const dot = document.createElement('span');
-        dot.classList.add('dot');
-        if (i === currentPage) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                this.currentPage = i;
+                this.displayItems();
+            });
 
-        dot.addEventListener('click', () => {
-            currentPage = i;
-            displayItem();
-        });
-
-        dotsContainer.appendChild(dot);
+            this.dots.appendChild(dot);
+        }
     }
 }
-
-document.querySelector('.nxt-btn').addEventListener('click', () => {
-    if ((currentPage + 1) * itemsPerPage < product.length) {
-        currentPage++;
-        displayItem();
-    }
-});
-
-document.querySelector('.pre-btn').addEventListener('click', () => {
-    if (currentPage > 0) {
-        currentPage--;
-        displayItem();
-    }
-});
 
 document.addEventListener('DOMContentLoaded', () => {
-    displayItem();
+    document.querySelectorAll('.product-slider-wrapper').forEach(wrapper => {
+        new ProductSlider(wrapper);
+    });
 });
