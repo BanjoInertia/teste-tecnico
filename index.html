@@ -16,43 +16,262 @@
 
 <body>
     <header>
-        <div class="search-bar-container">
-            <img src="assets/pageLogo.png" alt="">
-            <form>
-                <label for="searchBar">O</label>
-                <input type="text" id="serchBar" name="searchBar" placeholder="Digite aqui o que você procura">
-            </form>
+        <div class="coupon-container">
+            <p>Ganhe <span class="coupon-discount">R$10,00</span> de desconto no seu primeiro pedido. Utilize o cupom
+                <span class="coupon-code">DESCONTO10</span>
+            </p>
         </div>
-        <nav>
-            <ul class="nav-bar">
-                <li class="categories-menu">
-                    <img class="categories-menu-icon" src="assets/menuIcon.png" alt="">
-                    <p>Todas as Categorias</p>
+
+        <div class="header-container">
+            <img src="assets/pageLogo.png" alt="">
+            <form class="search-bar-container">
+                <input type="text" id="serchBar" name="searchBar" placeholder="Digite aqui o que você procura">
+                <img class="search-icon" src="assets/searchIcon.png" alt="">
+            </form>
+            <div class="client-menu">
+                <img src="assets/clientPFP.png" alt="">
+                <p>Olá,<br> Nome cliente!</p>
+                <div class="products-cart-container">
+                    <img class="products-cart" src="assets/productsCart.png" alt="">
+                    <div>2</div>
+                </div>
+            </div>
+        </div>
+
+        <nav class="nav-bar">
+            <ul class="menu">
+                <li class="dropdown">
+                    <div class="dropdown-trigger">
+                        <img class="categories-menu-icon" src="assets/menuIcon.png" alt="">
+                        <p>Todas as Categorias</p>
+                    </div>
+                    <div class="mega-menu">
+                        <div class="mega-left">
+                            <div class="dropdown-header">
+                                <strong>Departamento</strong>
+                            </div>
+                            <div class="menu-columns">
+                                <div class="menu-column">
+                                    <h4>Categoria</h4>
+                                    <ul>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                    </ul>
+                                </div>
+                                <div class="menu-column">
+                                    <h4>Categoria</h4>
+                                    <ul>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                    </ul>
+                                </div>
+                                <div class="menu-column">
+                                    <h4>Categoria</h4>
+                                    <ul>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-promo">
+                            <img src="assets/dropdownPromoImage.png" alt="Promo" />
+                            <div class="promo-text">
+                                <p>Confira os Produtos<br>Que acabaram de chegar</p>
+                                <button>Ver Todos</button>
+                            </div>
+                        </div>
+                    </div>
                 </li>
-                <li>
-                    <p>Departamento</p>
+
+                <li class="dropdown">
+                    <p class="dropdown-trigger">Departamento</p>
+                    <div class="mega-menu">
+                        <div class="mega-left">
+                            <div class="dropdown-header">
+                                <strong>Departamento</strong>
+                            </div>
+                            <div class="menu-columns">
+                                <div class="menu-column">
+                                    <h4>Categoria</h4>
+                                    <ul>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                    </ul>
+                                </div>
+                                <div class="menu-column">
+                                    <h4>Categoria</h4>
+                                    <ul>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                    </ul>
+                                </div>
+                                <div class="menu-column">
+                                    <h4>Categoria</h4>
+                                    <ul>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-promo">
+                            <img src="assets/dropdownPromoImage.png" alt="Promo" />
+                            <div class="promo-text">
+                                <p>Confira os Produtos<br>Que acabaram de chegar</p>
+                                <button>Ver Todos</button>
+                            </div>
+                        </div>
+                    </div>
                 </li>
-                <li>
-                    <p>Departamento</p>
+
+                <li class="dropdown">
+                    <p class="dropdown-trigger">Departamento</p>
+                    <div class="mega-menu">
+                        <div class="mega-left">
+                            <div class="dropdown-header">
+                                <strong>Departamento</strong>
+                            </div>
+                            <div class="menu-columns">
+                                <div class="menu-column">
+                                    <h4>Categoria</h4>
+                                    <ul>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                    </ul>
+                                </div>
+                                <div class="menu-column">
+                                    <h4>Categoria</h4>
+                                    <ul>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                    </ul>
+                                </div>
+                                <div class="menu-column">
+                                    <h4>Categoria</h4>
+                                    <ul>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-promo">
+                            <img src="assets/dropdownPromoImage.png" alt="Promo" />
+                            <div class="promo-text">
+                                <p>Confira os Produtos<br>Que acabaram de chegar</p>
+                                <button>Ver Todos</button>
+                            </div>
+                        </div>
+                    </div>
                 </li>
-                <li>
-                    <p>Departamento</p>
+
+                <li class="dropdown">
+                    <p class="dropdown-trigger">Departamento</p>
+                    <div class="mega-menu">
+                        <div class="mega-left">
+                            <div class="dropdown-header">
+                                <strong>Departamento</strong>
+                            </div>
+                            <div class="menu-columns">
+                                <div class="menu-column">
+                                    <h4>Categoria</h4>
+                                    <ul>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                    </ul>
+                                </div>
+                                <div class="menu-column">
+                                    <h4>Categoria</h4>
+                                    <ul>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                    </ul>
+                                </div>
+                                <div class="menu-column">
+                                    <h4>Categoria</h4>
+                                    <ul>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                        <li>Categoria</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-promo">
+                            <img src="assets/dropdownPromoImage.png" alt="Promo" />
+                            <div class="promo-text">
+                                <p>Confira os Produtos<br>Que acabaram de chegar</p>
+                                <button>Ver Todos</button>
+                            </div>
+                        </div>
+                    </div>
                 </li>
-                <li>
-                    <p>Departamento</p>
-                </li>
-                <li>
-                    <p>Departamento</p>
-                </li>
-                <li>
-                    <p>Departamento</p>
-                </li>
-                <li>
-                    <p>Departamento</p>
-                </li>
-                <li>
-                    <p>Departamento</p>
-                </li>
+
+                <!-- Duplicate this block for each "Departamento" -->
+                <!-- <li class="dropdown"><p>Departamento</p><div class="mega-menu">...same as above...</div></li>
+              <li class="dropdown"><p>Departamento</p><div class="mega-menu">...same as above...</div></li>
+              <li class="dropdown"><p>Departamento</p><div class="mega-menu">...same as above...</div></li> -->
+                <!-- etc... -->
             </ul>
         </nav>
     </header>
@@ -157,7 +376,8 @@
     </section>
 
     <section class="contact-section-banner-image">
-        <h3 class="contact-section-banner-text">Entre em contato conosco e verifique a disponibilidade para sua região!</h3>
+        <h3 class="contact-section-banner-text">Entre em contato conosco e verifique a disponibilidade para sua região!
+        </h3>
     </section>
 
     <section class="newsletter-section">
@@ -170,9 +390,9 @@
                     placeholder="Digite seu e-mail">
                 <div class="checkbox-input-container">
                     <input class="checkbox-input" type="checkbox" id="newsletterCheck" name="newsletterCheck">
-                    <label for="newsletterCheck">Estou de acordo com a Política de Privacidade</label>
+                    <label for="newsletterCheck">Estou de acordo com a <span>Política de Privacidade</span></label>
                 </div>
-                <button>Cadastrar</button>
+                <button type="submit">Cadastrar</button>
             </form>
         </div>
     </section>

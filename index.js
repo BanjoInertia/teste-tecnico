@@ -9,6 +9,29 @@ function updateBannerPadding() {
 window.addEventListener("DOMContentLoaded", updateBannerPadding);
 window.addEventListener("resize", updateBannerPadding);
 
+document.querySelectorAll('.dropdown').forEach(dropdown => {
+    const trigger = dropdown.querySelector('.dropdown-trigger');
+    const menu = dropdown.querySelector('.mega-menu');
+
+    let timeout;
+
+    const showMenu = () => {
+        clearTimeout(timeout);
+        dropdown.classList.add('open');
+    };
+
+    const hideMenu = () => {
+        timeout = setTimeout(() => {
+            dropdown.classList.remove('open');
+        }, 200);
+    };
+
+    trigger.addEventListener('mouseenter', showMenu);
+    trigger.addEventListener('mouseleave', hideMenu);
+    menu.addEventListener('mouseenter', showMenu);
+    menu.addEventListener('mouseleave', hideMenu);
+});
+
 const product = [
     {
         id: 0,

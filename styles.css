@@ -6,19 +6,215 @@ header {
     z-index: 9999;
 }
 
-.search-bar-container {
+.coupon-container {
+    padding: 8px 0;
+    text-align: center;
+    background-color: #005CFF;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.coupon-discount {
+    background-color: #7c01c4;
+    padding: 1px 4px;
+    border-radius: 8px;
+}
+
+.coupon-code {
+    font-weight: 300;
+}
+
+.header-container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 18px 330px;
 }
 
-.nav-bar {
+.header-container input {
+    width: 600px;
+    padding: 9px 45px 9px 24px;
+    border: solid 2px #DDDDDD;
+    border-radius: 8px;
+    background-color: white;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    outline: none;
+}
+
+.header-container input::placeholder {
+    color: #000000;
+}
+
+.search-bar-container {
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.client-menu {
     display: flex;
-    justify-content: space-between;
-    font-size: 0.875rem;
+    align-items: center;
+    gap: 8px;
+}
+
+.products-cart-container {
+    position: relative;
+}
+
+.products-cart-container img {
+    cursor: pointer;
+}
+
+.products-cart-container div {
+    width: 1.3rem;
+    height: 1.3rem;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #005CFF;
+    border-radius: 50px;
+    color: white;
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    cursor: pointer;
+}
+
+.products-cart {
+    margin-left: 16px;
+}
+
+/* nav-bar */
+
+.nav-bar {
+    background-color: white;
+    padding: 20px 60px;
+    position: relative;
+    z-index: 10;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 0;
+    margin: 0;
+}
+
+.categories-menu {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-trigger {
+    display: flex;
+}
+
+.dropdown-trigger:hover {
+    cursor: pointer;
+    color: #005CFF;
+}
+
+.mega-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50vw;
+    background: white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px 40px;
+    z-index: 1000;
+}
+
+.dropdown.open .mega-menu {
+    display: flex;
+}
+
+.dropdown-header {
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 17px;
+}
+
+.mega-left {
+    flex: 3;
+}
+
+.dropdown:hover .mega-menu {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+}
+
+.menu-columns {
+    display: flex;
+    gap: 127px;
+    flex: 3;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.menu-column h4 {
+    color: #007bff;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.menu-column ul {
+    margin: 0;
+    list-style: none;
+    font-size: 14px;
+    color: #555;
+}
+
+.menu-column ul li {
+    margin-bottom: 12px;
     font-weight: 400;
-    line-height: 22px;
-    padding: 18px 330px;
+}
+
+.menu-promo {
+    flex: 1;
+    position: relative;
+}
+
+.menu-promo img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.promo-text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.promo-text button {
+    margin-top: 10px;
+    background-color: #00a859;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .categories-menu-icon {
@@ -27,14 +223,11 @@ header {
     padding-right: 10px;
 }
 
-.categories-menu {
-    display: flex;
-    font-weight: 700;
-}
+.dropdown-trigger:hover .categories-menu-icon {
+    filter: invert(27%) sepia(99%) saturate(3486%) hue-rotate(196deg) brightness(96%) contrast(96%);
+  }
 
-.categories-menu-icon {
-    width: 10px;
-}
+/* page-banner */
 
 .page-banner {
     display: flex;
@@ -286,7 +479,6 @@ header {
     background-color: black;
 }
 
-
 /* product presentation section */
 
 .page-product-presentation {
@@ -420,6 +612,12 @@ header {
     align-items: center;
     justify-content: center;
     gap: 8px;
+    color: #656565;
+}
+
+.checkbox-input-container span {
+    color: #656565;
+    text-decoration: underline;
 }
 
 .checkbox-input {
