@@ -6,12 +6,30 @@ function updateBannerPadding() {
     }
 }
 
+function updateAllSubmenuHeights() {
+    const megaMenu = document.querySelector(".mega-menu, .categories-mega-menu");
+    const subMenus = document.querySelectorAll(".submenu");
+
+    if (megaMenu && subMenus.length > 0) {
+        const targetHeight = megaMenu.offsetHeight - 40;
+
+        subMenus.forEach(subMenu => {
+            subMenu.style.height = `${targetHeight}px`;
+        });
+    }
+}
+
+window.addEventListener("load", updateAllSubmenuHeights);
+window.addEventListener("resize", updateAllSubmenuHeights);
+
+
 window.addEventListener("DOMContentLoaded", updateBannerPadding);
 window.addEventListener("resize", updateBannerPadding);
 
+
 document.querySelectorAll('.dropdown').forEach(dropdown => {
-    const trigger = dropdown.querySelector('.dropdown-trigger');
-    const menu = dropdown.querySelector('.mega-menu');
+    const trigger = dropdown.querySelector(':scope > .dropdown-trigger');
+    const menu = dropdown.querySelector(':scope > .mega-menu,:scope > .categories-mega-menu');
 
     let timeout;
 
@@ -26,10 +44,14 @@ document.querySelectorAll('.dropdown').forEach(dropdown => {
         }, 200);
     };
 
-    trigger.addEventListener('mouseenter', showMenu);
-    trigger.addEventListener('mouseleave', hideMenu);
-    menu.addEventListener('mouseenter', showMenu);
-    menu.addEventListener('mouseleave', hideMenu);
+    if (trigger) {
+        trigger.addEventListener('mouseenter', showMenu);
+        trigger.addEventListener('mouseleave', hideMenu);
+    }
+    if (menu) {
+        menu.addEventListener('mouseenter', showMenu);
+        menu.addEventListener('mouseleave', hideMenu);
+    }
 });
 
 const product = [
@@ -154,6 +176,87 @@ function getItemsPerPage() {
     if (width <= 1200) return 3;
     return 5;
 }
+
+function categoriesDropdownSubmenu() {
+    const triggers = document.querySelectorAll('.has-submenu');
+    const submenu = document.querySelector('.lalala');
+
+    let isHoveringTrigger = false;
+    let isHoveringSubmenu = false;
+
+    if (submenu) {
+        const showSubmenu = () => {
+            submenu.innerHTML = `
+                <li>
+                    <h4>Categoria</h4>
+                    <ul>
+                    <li>Categoria</li>
+                    <li>Categoria</li>
+                    <li>Categoria</li>
+                    <li>Categoria</li>
+                    <li>Categoria</li>
+                    <li>Categoria</li>
+                    <li>Categoria</li>
+                    </ul>                     
+                </li>
+                <li>
+                    <h4>Categoria</h4>
+                    <ul>
+                    <li>Categoria</li>
+                    <li>Categoria</li>
+                    <li>Categoria</li>
+                    <li>Categoria</li>
+                    <li>Categoria</li>
+                    <li>Categoria</li>
+                    <li>Categoria</li>
+                    </ul>                     
+                </li>
+                <li>
+                    <h4>Categoria</h4>
+                    <ul>
+                    <li>Categoria</li>
+                    <li>Categoria</li>
+                    <li>Categoria</li>
+                    <li>Categoria</li>
+                    <li>Categoria</li>
+                    <li>Categoria</li>
+                    <li>Categoria</li>
+                    </ul>                     
+                </li>
+            `;
+        };
+
+        const hideSubmenu = () => {
+            if (!isHoveringTrigger && !isHoveringSubmenu) {
+                submenu.innerHTML = '';
+            }
+        };
+
+        triggers.forEach(trigger => {
+            trigger.addEventListener('mouseenter', () => {
+                isHoveringTrigger = true;
+                showSubmenu();
+            });
+
+            trigger.addEventListener('mouseleave', () => {
+                isHoveringTrigger = false;
+                setTimeout(hideSubmenu, 100);
+            });
+        });
+
+        submenu.addEventListener('mouseenter', () => {
+            isHoveringSubmenu = true;
+        });
+
+        submenu.addEventListener('mouseleave', () => {
+            isHoveringSubmenu = false;
+            setTimeout(hideSubmenu, 100);
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', categoriesDropdownSubmenu);
+
 
 class ProductSlider {
     constructor(wrapperElement) {
