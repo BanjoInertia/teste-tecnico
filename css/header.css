@@ -66,6 +66,10 @@ header {
     gap: 8px;
 }
 
+.mobile-nav-menu {
+    display: none;
+}
+
 .products-cart-container {
     position: relative;
 }
@@ -109,5 +113,50 @@ header {
 @media (max-width: 950px) {
     .header-container input {
         width: 200px;
+    }
+}
+
+@media (max-width: 700px) {
+    .header-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+            "mobilenavmenu headerlogo clientmenu"
+            "searchbar searchbar searchbar"
+        ;
+        justify-self: center;
+    }
+
+    .client-menu p {
+        display: none;
+    }
+
+    .client-pfp {
+        display: none;
+    }
+
+    .search-bar-container {
+        grid-area: searchbar;
+        justify-self: center;
+        margin-top: 20px;
+    }
+
+    .header-logo {
+        grid-area: headerlogo;
+    }
+
+    .client-menu {
+        grid-area: clientmenu;
+        justify-self: end;
+    }
+
+    .mobile-nav-menu {
+        display: block;
+        grid-area: mobilenavmenu;
+    }
+
+    .header-container input {
+        width: 300px;
     }
 }

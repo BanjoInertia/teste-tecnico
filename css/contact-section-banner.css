@@ -1,0 +1,29 @@
+.contact-section-banner-image {
+    display: flex;
+    align-items: center;
+    background-image: url(../assets/contactSectionBannerImage.png);
+    height: 660px;
+    background-position: center;
+}
+
+.contact-section-banner-text {
+    background-color: #005CFF;
+    width: 100%;
+    text-align: center;
+    padding: 50px 40px;
+    font-family: "Nunito", sans-serif;
+    font-weight: 600;
+    font-size: 1.875rem;
+    color: white;
+}
+
+@media (max-width: 1200px) {
+    .contact-section-banner-image {
+        height: 500px;
+    }
+    .contact-section-banner-text {
+        font-size: 16px;
+        line-height: 140%;
+        padding: 20px 40px;
+    }
+}

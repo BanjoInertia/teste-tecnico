@@ -1,6 +1,11 @@
 @import url("./header.css");
+@import url("./page-banner.css");
 @import url("./page-product-presentation.css");
 @import url("./product-slider.css");
+@import url("./second-page-banner.css");
+@import url("./contact-section-banner.css");
+@import url("./newsletter-section.css");
+@import url("./footer.css");
 
 /* nav-bar */
 
@@ -9,6 +14,12 @@
     padding: 20px 60px;
     position: relative;
     z-index: 10;
+}
+
+@media (max-width: 700px) {
+    .nav-bar {
+        display: none;
+    }
 }
 
 .menu {
@@ -180,7 +191,6 @@
 .departments-list::-webkit-scrollbar-track {
     background: transparent;
     box-shadow: inset 0 0 6px rgba(161, 161, 161, 0.2);
-    /* shadow inside the track */
     border-radius: 10px;
 }
 
@@ -223,7 +233,6 @@
     color: #000;
     margin-bottom: 17px;
 }
-
 
 .dropdown:hover .mega-menu {
     opacity: 1;
@@ -332,42 +341,7 @@
 
 /* page-banner */
 
-.page-banner {
-    display: flex;
-    justify-content: center;
-    font-family: "Nunito", sans-serif;
-    font-weight: 700;
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    text-align: center;
-    background-color: #E7E7EA;
-    color: #005CFF;
-    letter-spacing: 5px;
-    gap: 20px;
-    padding: 0 315px;
-}
 
-.banner-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 30px;
-}
-
-.banner-title {
-    font-size: 5.5rem;
-    padding-bottom: 5px;
-    color: black;
-    letter-spacing: 0px;
-}
-
-.banner-title2 {
-    font-weight: 200;
-}
-
-.discount {
-    font-size: 3.7rem;
-}
 
 /* product slider */
 
@@ -398,208 +372,15 @@
 
 /* secondPageBanner */
 
-.second-page-banner {
-    display: flex;
-    align-items: center;
-    padding: 45px 372px;
-    background-color: #DEDEDE;
-    font-family: "Nunito", sans-serif;
-    margin: 55px 0;
-}
 
-.second-page-banner h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    text-align: center;
-    padding-bottom: 30px;
-    text-transform: uppercase;
-}
-
-.second-banner-image {
-    width: 600px;
-}
-
-.second-page-banner-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    font-weight: 400;
-    line-height: 140%;
-    letter-spacing: 1px;
-    padding: 20px 0;
-}
-
-.second-page-banner-item p {
-    padding: 0 60px 0 20px;
-}
 
 /* contactSectionBanner */
 
-.contact-section-banner-image {
-    display: flex;
-    align-items: center;
-    background-image: url(assets/contactSectionBannerImage.png);
-    height: 660px;
-}
 
-.contact-section-banner-text {
-    background-color: #005CFF;
-    width: 100%;
-    text-align: center;
-    padding: 50px 0;
-    font-family: "Nunito", sans-serif;
-    font-weight: 400;
-    font-size: 1.875rem;
-    color: white;
-}
 
 /* newsletterSection */
 
-.newsletter-section {
-    margin: 50px 250px;
-    font-family: "Nunito Sans", sans-serif;
-}
 
-.newsletter-section h3 {
-    text-align: center;
-    margin-bottom: 24px;
-    font-size: 20px;
-    font-weight: 700;
-}
-
-.newsletter-section span {
-    color: #005CFF;
-}
-
-.newsletter-form-container {
-    background-color: #DEDEDE;
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    align-items: center;
-    padding: 64px 100px;
-    border-radius: 8px;
-    position: relative;
-}
-
-.text-input {
-    width: 280px;
-    font-size: 14px;
-    background-color: white;
-    border: none;
-    padding: 14px 24px;
-    border-radius: 8px;
-    font-family: "Nunito Sans", sans-serif;
-}
-
-.checkbox-input-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    color: #656565;
-}
-
-.checkbox-input-container span {
-    color: #656565;
-    text-decoration: underline;
-}
-
-.checkbox-input {
-    margin: 0;
-    appearance: none;
-    position: relative;
-    width: 1.125rem;
-    height: 1.125rem;
-    background-color: #fff;
-    border-radius: 0.25rem;
-}
-
-.checkbox-input::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0.75rem;
-    height: 0.75rem;
-    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-    transform: translate(-50%, -50%) scale(0);
-    transform-origin: center;
-    transition: 0.125s transform ease-in-out;
-    box-shadow: inset 1rem 1rem #000000;
-}
-
-.checkbox-input:checked {
-    background-color: #ffffff;
-}
-
-.checkbox-input:checked::before {
-    transform: translate(-50%, -50%) scale(1);
-}
-
-.newsletter-form-container label {
-    font-size: 12px;
-    font-weight: 700;
-}
-
-.newsletter-form-container button {
-    font-size: 16px;
-    font-weight: 700;
-    background-color: #005CFF;
-    color: white;
-    padding: 14px 24px;
-    border: none;
-    border-radius: 8px;
-    font-family: "Nunito Sans", sans-serif;
-    cursor: pointer;
-}
-
-.newsletter-form-container button:hover {
-    background-color: #00264E;
-}
-
-.error-message {
-    color: red;
-    font-size: 0.8em;
-    margin-bottom: 10px;
-    display: none;
-    position: absolute;
-    top: calc(60% + 10px);
-}
 
 /* footer */
 
-.footer-first-section {
-    background-color: #F5F5F5;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    padding: 64px 370px 0 370px;
-    font-family: "Nunito", sans-serif;
-    font-weight: 400;
-    line-height: 28px;
-    font-size: 0.875rem;
-}
-
-.footer-first-section h4 {
-    font-weight: 700;
-}
-
-.footer-brand-logos {
-    grid-column: 1 / -1;
-    text-align: center;
-    padding: 64px 0;
-}
-
-.footer-second-section {
-    font-family: "Nunito Sans", sans-serif;
-    font-weight: 400;
-    line-height: 20px;
-    font-size: 0.75rem;
-    padding: 40px 423px;
-    text-align: center;
-}
-
-.footer-second-section img {
-    padding-top: 40px;
-}

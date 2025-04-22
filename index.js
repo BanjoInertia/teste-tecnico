@@ -269,6 +269,7 @@ class ProductSlider {
 
         this.attachEvents();
         this.displayItems();
+        this.positionButtons();
     }
 
     attachEvents() {
@@ -293,7 +294,23 @@ class ProductSlider {
                 this.currentPage = 0;
                 this.displayItems();
             }
+            this.positionButtons();
         });
+    }
+
+    positionButtons() {
+        const productCards = this.slider.querySelectorAll('.product-card');
+        if (productCards.length === 0) return;
+
+        const wrapperRect = this.wrapper.getBoundingClientRect();
+        const firstCardRect = productCards[0].getBoundingClientRect();
+        const lastCardRect = productCards[productCards.length - 1].getBoundingClientRect();
+
+        const leftOffset = firstCardRect.left - wrapperRect.left;
+        const rightOffset = wrapperRect.right - lastCardRect.right;
+
+        this.prevBtn.style.left = `${leftOffset - this.prevBtn.offsetWidth / 2}px`;
+        this.nextBtn.style.right = `${rightOffset - this.nextBtn.offsetWidth / 2}px`;
     }
 
     displayItems() {
@@ -323,6 +340,7 @@ class ProductSlider {
         `).join('');
 
         this.updateDots();
+        this.positionButtons();
     }
 
     updateDots() {
@@ -350,49 +368,67 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-const form = document.getElementById('newsletterForm')
-const newsletterName = document.getElementById('newsletterName')
-const newsletterEmail = document.getElementById('newsletterEmail')
-const newsletterCheck = document.getElementById('newsletterCheck')
-const errorMessages = document.querySelectorAll('.error-message')
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('newsletterForm');
+    const newsletterName = document.getElementById('newsletterName');
+    const newsletterEmail = document.getElementById('newsletterEmail');
+    const newsletterCheck = document.getElementById('newsletterCheck');
+    const errorMessages = document.querySelectorAll('.error-message');
 
-form.addEventListener('submit', function (e) {
-    e.preventDefault();
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
 
-    console.log('eu sou humilde')
+        let isValid = true;
 
-    let isValid = true;
+        errorMessages.forEach(msg => {
+            msg.textContent = '';
+            msg.style.display = 'none';
+        });
 
-    errorMessages.forEach(msg => {
-        msg.textContent = '';
-        msg.style.display = 'none';
-      });
+        if (newsletterName.value.trim() === '') {
+            showError(newsletterName, 'Name is required');
+            isValid = false;
+        }
 
-    if (newsletterName.value.trim() === '') {
-        showError(newsletterName, 'Name is required');
-        isValid = false;
-    }
+        if (!newsletterEmail.value.match(/^\S+@\S+\.\S+$/)) {
+            showError(newsletterEmail, 'Enter a valid email');
+            isValid = false;
+        }
 
-    if (!newsletterEmail.value.match(/^\S+@\S+\.\S+$/)) {
-        showError(newsletterEmail, 'Enter a valid email');
-        isValid = false;
-    }
+        if (!newsletterCheck.checked) {
+            showError(newsletterCheck, 'You must agree to continue.');
+            isValid = false;
+        }
 
-    if (!newsletterCheck.checked) {
-        showError(newsletterCheck, 'You must agree to continue.');
-        isValid = false;
-    }
+        if (isValid) {
+            alert('Subscription successful!');
+            form.reset();
+        }
+    });
 
-    if (isValid) {
-        alert('Subscription successful!');
-        form.reset();
+    function showError(inputElement, message) {
+        const error = inputElement.nextElementSibling;
+        error.textContent = message;
+        error.style.display = 'block';
     }
 });
 
-function showError(inputElement, message) {
-    const error = inputElement.nextElementSibling;
-    error.textContent = message;
-    error.style.display = 'block';
-}
+document.addEventListener("DOMContentLoaded", function () {
+    const headers = document.querySelectorAll(".accordion-header");
 
+    headers.forEach(header => {
+        header.addEventListener("click", function () {
 
+            const item = header.parentElement;
+            const content = item.querySelector(".accordion-content");
+
+            item.classList.toggle("open");
+
+            if (item.classList.contains("open")) {
+                content.style.maxHeight = content.scrollHeight + "px";
+            } else {
+                content.style.maxHeight = null;
+            }
+        });
+    });
+});

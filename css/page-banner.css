@@ -1,0 +1,87 @@
+.page-banner {
+    display: flex;
+    justify-content: center;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #E7E7EA;
+    color: #005CFF;
+    letter-spacing: 5px;
+    gap: 20px;
+}
+
+.banner-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+}
+
+.banner-title {
+    font-size: 5.5rem;
+    padding-bottom: 5px;
+    color: black;
+    letter-spacing: 0px;
+}
+
+.banner-title2 {
+    font-weight: 200;
+}
+
+.discount {
+    font-size: 3.7rem;
+}
+
+.page-banner img {
+    width: 685px;
+}
+
+@media (max-width: 1400px) {
+    .page-banner {
+        font-size: 1rem;
+    }
+    
+    .banner-text {
+        width: 240px;
+        gap: 10px;
+    }
+    
+    .banner-title {
+        font-size: 4.3rem;
+    }
+    
+    .banner-title1::after {
+        content: ' ';
+    }
+
+    .discount {
+        font-size: 2rem;
+    }
+
+    .page-banner img {
+        width: 500px;
+    }
+}
+
+@media (max-width: 750px) {
+    .banner-title {
+        font-size: 3rem;
+    }
+
+    .page-banner {
+        font-size: 0.7rem;
+        padding-right: 50px;
+        height: 330px;
+    }
+
+    .page-banner img {
+        margin-left: -200px;
+    }
+
+    .banner-text {
+        width: 200px;
+        gap: 10px;
+    }
+}

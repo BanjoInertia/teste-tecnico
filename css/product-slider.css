@@ -43,9 +43,6 @@
     z-index: 9;
 }
 
-
-
-
 .pagination-dots {
     display: flex;
     justify-content: center;
@@ -192,13 +189,17 @@
     }
 }
 
-@media (max-width: 1200px) {
-
-}
-
 @media (max-width: 600px) {
+    .product-slider-header {
+        padding: 0 5%;
+    }
+
     .product-card {
         width: 174px;
         height: 409px;
+    }
+
+    .product-slider-wrapper2 {
+        display: none;
     }
 }

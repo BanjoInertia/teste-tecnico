@@ -1,0 +1,137 @@
+.footer-first-section {
+    background-color: #F5F5F5;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0 19%;
+    padding-top: 64px;
+    font-family: "Nunito", sans-serif;
+    font-weight: 400;
+    line-height: 28px;
+    font-size: 0.875rem;
+}
+
+.footer-first-section h4 {
+    font-weight: 700;
+}
+
+.footer-page-logo {
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-brand-logos {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 64px 0;
+    background-image: url("../assets/brandLogos.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.footer-second-section {
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: 400;
+    line-height: 20px;
+    font-size: 0.75rem;
+    padding: 40px 22%;
+    text-align: center;
+}
+
+.footer-second-section img {
+    padding-top: 40px;
+}
+
+.footer-page-logo {
+    background-image: url("../assets/pageLogo.png");
+    background-repeat: no-repeat;
+    justify-content: start;
+}
+
+.footer-page-logo img {
+    height: 25px;
+    width: auto;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.footer-accordion {
+    display: none;
+    background-color: #f5f5f5;
+    font-family: "Nunito", sans-serif;
+    padding: 20px;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.accordion-header {
+    background: none;
+    border: none;
+    width: 100%;
+    padding: 15px 0;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.accordion-header h5 {
+    font-weight: bold;
+    margin: 0;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    padding-left: 10px;
+}
+
+.accordion-item.open .accordion-content {
+    max-height: 500px;
+}
+
+.accordion-item .arrow {
+    transition: transform 0.3s ease;
+}
+
+.accordion-item.open .arrow {
+    transform: rotate(180deg);
+}
+
+@media (max-width: 1300px) {
+    .footer-first-section {
+        padding: 0 5%;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .footer-first-section ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer-brand-logos {
+        background-image: url("../assets/brandLogos2.png");
+    }
+
+    .footer-second-section {
+        padding: 40px 5%;
+    }
+
+    .footer-page-logo {
+        background-position: center;
+    }
+
+    .footer-accordion {
+        display: block !important;
+    }
+
+    .footer-first-section {
+        display: none !important;
+    }
+}
