@@ -116,7 +116,7 @@ header {
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 915px) {
     .header-container {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
