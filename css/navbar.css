@@ -187,6 +187,10 @@
 
 /* menus */
 
+.department-menu-template {
+    display: none;
+}
+
 .mega-menu {
     display: none;
     position: absolute;
